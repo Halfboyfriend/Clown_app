@@ -19,7 +19,8 @@ function App() {
   const [l2, setL2] = useState(false);
   const [l3, setL3] = useState(false);
 
-  const LIKE = "";
+  const LIKE = "https://twitter.com/intent/like?tweet_id=1719607712512659884";
+  const FOLLOW = "https://twitter.com/intent/follow?screen_name=Clown_Protocol";
   const POST =
     "https://twitter.com/intent/tweet?text=Time to stir up some mischief at @clown_protocol! 🃏 Joining in for the laughs and tricks in clownverse! 🤡 $CLOP #ClownProtocol #Clownlist #CLOP";
   function handleClick(e) {
@@ -195,7 +196,7 @@ function App() {
                 <div className="col-12 d-flex m-2">
                   <p>
                     Follow{" "}
-                    <a onClick={checkClickT} href={LIKE} target="_blank" >
+                    <a onClick={checkClickT} href={FOLLOW} target="_blank" >
                       @Clown Protocol
                     </a>{" "}
                     on X
