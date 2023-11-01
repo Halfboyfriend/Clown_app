@@ -12,10 +12,12 @@ function App() {
   const [loadT, setLoadT] = useState(false);
   const [loadL, setLoadL] = useState(false);
   const [loadF, setLoadF] = useState(false);
-  const [d1, setD1] = useState(false)
-  const [d2, setD2] = useState(false)
-  const [d3, setD3] = useState(false)
-
+  const [d1, setD1] = useState(false);
+  const [d2, setD2] = useState(false);
+  const [d3, setD3] = useState(false);
+  const [l1, setL1] = useState(false);
+  const [l2, setL2] = useState(false);
+  const [l3, setL3] = useState(false);
 
   const LIKE = "";
   const POST =
@@ -25,71 +27,118 @@ function App() {
     setLoading(true);
 
     if (d1 && d2 && d3) {
-      setMsg(<Message success>
-        <Message.Header>Congratulations!!! You made it</Message.Header>
-        <p>Now you are the real Clown</p>
-      </Message>);
+      setMsg(
+        <Message success>
+          <Message.Header>Congratulations!!! You made it</Message.Header>
+          <p>Now you are the real Clown</p>
+        </Message>
+      );
       setLoading(false);
     } else {
-      setMsg(<Message error>
-      <Message.Header>Task not completed</Message.Header>
-      <p>Please complete your task and click check to confirm</p>
-    </Message>);
+      setMsg(
+        <Message error>
+          <Message.Header>Task not completed</Message.Header>
+          <p>Please complete your task and click check to confirm</p>
+        </Message>
+      );
       setLoading(false);
     }
   }
   function checkBtn() {
     const btn = document.getElementById("Tbtn");
-    setD1(true)
+    setD1(true);
     setLoadT(true);
     setTimeout(() => {
-      btn.innerHTML = "Done";
-      btn.style.backgroundColor = "green";
-      btn.style.color = "#fff";
+      if (l1) {
+        btn.innerHTML = "Done";
+        btn.style.backgroundColor = "green";
+        btn.style.color = "#fff";
+        setMsg('')
+    setLoadT(false);
+        
+      } else {
+    setLoadT(false);
+
+        setMsg(
+          <Message error>
+            <p>The real clown is the one who tweet about clown protocol</p>
+          </Message>
+        );
+      }
 
       setLoadT(false);
     }, 2000);
   }
   function checkBtnL() {
     const btn = document.getElementById("Lbtn");
-    setD2(true)
+    setD2(true);
 
     setLoadL(true);
 
     setTimeout(() => {
-      btn.innerHTML = "Done";
-      btn.style.backgroundColor = "green";
-      btn.style.color = "#fff";
-      setLoadL(false);
+      if (l2) {
+        btn.innerHTML = "Done";
+        btn.style.backgroundColor = "green";
+        btn.style.color = "#fff";
+        setLoadL(false);
+        setMsg('')
+
+      } else {
+        setLoadL(false);
+        setMsg(
+          <Message error>
+            <p>The real clown is the one who like clown protocol post</p>
+          </Message>
+        );
+      }
     }, 2000);
   }
   function checkBtnF() {
     const btn = document.getElementById("Fbtn");
     setLoadF(true);
-    setD3(true)
-
+    setD3(true);
 
     setTimeout(() => {
-      btn.innerHTML = "Done";
-      btn.style.backgroundColor = "green";
-      btn.style.color = "#fff";
-      setLoadF(false);
+      if (l3) {
+        btn.innerHTML = "Done";
+        btn.style.backgroundColor = "green";
+        btn.style.color = "#fff";
+        setLoadF(false);
+        setMsg('')
+      } else {
+        setLoadF(false);
+
+        setMsg(
+          <Message error>
+            <p>The real clown is the one who follows clown protocol</p>
+          </Message>
+        );
+      }
     }, 2000);
+  }
+  function checkClick(){
+    setL1(true)
+  }
+  function checkClickL(){
+    setL2(true)
+  }
+  function checkClickT(){
+    setL3(true)
   }
   return (
     <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="App-logo" alt="logo" />
 
-        <Button
-          type="button"
-          data-toggle="modal"
-          data-target="#exampleModal"
-          className="mt-5"
-          color="red"
-          style={{width: '130px'}}
-        >
-          Become A 🤡
-        </Button>
+      <Button
+        type="button"
+        data-toggle="modal"
+        data-target="#exampleModal"
+        className="mt-5"
+        color="red"
+        style={{ width: "130px" }}
+      >
+        Become A 🤡
+      </Button>
 
       <div
         class="modal fade"
@@ -100,8 +149,7 @@ function App() {
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered" role="document">
-       
-          <div class="modal-content" style={{backgroundColor: '#282c34'}}>
+          <div class="modal-content" style={{ backgroundColor: "#282c34" }}>
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
                 A Real Clown Do This
@@ -112,9 +160,13 @@ function App() {
               <div className="row">
                 <div className="col-12 d-flex m-2">
                   <p>
-                    Tweet <a href={POST} target="_blank">@Clown</a> on X
+                    Tweet{" "}
+                    <a onClick={checkClick} href={POST} target="_blank">
+                      @Clown Protocol
+                    </a>{" "}
+                    on X
                   </p>{" "}
-                  <div style={{ marginLeft: "100px" }}>
+                  <div style={{ marginLeft: "50px" }}>
                     <Button
                       content="check"
                       id="Tbtn"
@@ -125,9 +177,13 @@ function App() {
                 </div>
                 <div className="col-12 d-flex m-2">
                   <p>
-                    Like <a href={LIKE}  target="_blank">@clown post</a> on X
+                    Like{" "}
+                    <a onClick={checkClickL} href={LIKE} target="_blank">
+                      @Clown Protocol post
+                    </a>{" "}
+                    on X
                   </p>{" "}
-                  <div style={{ marginLeft: "100px" }}>
+                  <div style={{ marginLeft: "40px" }}>
                     <Button
                       content="check"
                       id="Lbtn"
@@ -138,9 +194,13 @@ function App() {
                 </div>
                 <div className="col-12 d-flex m-2">
                   <p>
-                    Follow <a href={LIKE} target="_blank">@clown</a> on X
+                    Follow{" "}
+                    <a onClick={checkClickT} href={LIKE} target="_blank" >
+                      @Clown Protocol
+                    </a>{" "}
+                    on X
                   </p>{" "}
-                  <div style={{ marginLeft: "100px" }}>
+                  <div style={{ marginLeft: "50px" }}>
                     <Button
                       content="check"
                       id="Fbtn"
