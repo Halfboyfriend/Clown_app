@@ -25,10 +25,16 @@ function App() {
     setLoading(true);
 
     if (d1 && d2 && d3) {
-      setMsg("Success");
+      setMsg(<Message success>
+        <Message.Header>Congratulations!!! You made it</Message.Header>
+        <p>Now you are the real Clown</p>
+      </Message>);
       setLoading(false);
     } else {
-      setMsg("Please complete your task and click check to confirm.");
+      setMsg(<Message error>
+      <Message.Header>Task not completed</Message.Header>
+      <p>Please complete your task and click check to confirm</p>
+    </Message>);
       setLoading(false);
     }
   }
