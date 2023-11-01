@@ -1,9 +1,17 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 img{
-  width: 300px;
+  min-width: 500px;
   height: 300px;
 }
 
@@ -11,7 +19,7 @@ img{
   height: 40vmin;
   pointer-events: none;
   border: 1px solid #000;
-  border-radius: 30%;
+  border-radius: 10%;
 }
 
 button{
@@ -31,19 +39,11 @@ button{
     animation: App-logo-spin infinite 20s linear;
   }
 } */
-body{
-  background-color: #282c34;
-}
 
-.App-header {
+
+body {
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+ 
 }
 
 .App-link {

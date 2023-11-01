@@ -78,7 +78,6 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
         <Button
@@ -87,10 +86,10 @@ function App() {
           data-target="#exampleModal"
           className="mt-5"
           color="red"
+          style={{width: '130px'}}
         >
           Become A 🤡
         </Button>
-      </header>
 
       <div
         class="modal fade"
@@ -101,7 +100,8 @@ function App() {
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
+       
+          <div class="modal-content" style={{backgroundColor: '#282c34'}}>
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
                 A Real Clown Do This
@@ -112,7 +112,7 @@ function App() {
               <div className="row">
                 <div className="col-12 d-flex m-2">
                   <p>
-                    Tweet <a href={POST}>@Clown</a> on X
+                    Tweet <a href={POST} target="_blank">@Clown</a> on X
                   </p>{" "}
                   <div style={{ marginLeft: "100px" }}>
                     <Button
@@ -125,7 +125,7 @@ function App() {
                 </div>
                 <div className="col-12 d-flex m-2">
                   <p>
-                    Like <a href={LIKE}>@clown post</a> on X
+                    Like <a href={LIKE}  target="_blank">@clown post</a> on X
                   </p>{" "}
                   <div style={{ marginLeft: "100px" }}>
                     <Button
@@ -138,7 +138,7 @@ function App() {
                 </div>
                 <div className="col-12 d-flex m-2">
                   <p>
-                    Follow <a href={LIKE}>@clown</a> on X
+                    Follow <a href={LIKE} target="_blank">@clown</a> on X
                   </p>{" "}
                   <div style={{ marginLeft: "100px" }}>
                     <Button
